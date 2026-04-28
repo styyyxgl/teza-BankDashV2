@@ -1,0 +1,137 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 360px;
+  height: 228px;
+  color: var(--color-text-white);
+  border-radius: 25px;
+  padding: 25px 25px 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bank-name {
+  font-weight: 700;
+}
+
+.card-type {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.balance-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.balance {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail-label {
+  font-size: 10px;
+  font-weight: 300;
+}
+
+.card-number-container {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.copy-icon {
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.card-number-container:hover .copy-icon {
+  opacity: 1;
+}
+
+.virtual {
+  position: relative;
+  background: linear-gradient(135deg, #4568dc, #b06ab3);
+  overflow: hidden;
+}
+
+.virtual::before,
+.virtual::after {
+  content: "";
+  position: absolute;
+  background-color: var(--color-text-white);
+  opacity: 0.1;
+  border-radius: 50%;
+}
+
+.virtual:before {
+  width: 96px;
+  height: 96px;
+  bottom: -4px;
+  right: 12px;
+}
+
+.virtual:after {
+  width: 144px;
+  height: 144px;
+  top: -12px;
+  right: -48px;
+}
+
+.credit {
+  position: relative;
+  background: linear-gradient(135deg, #0f0f0f, #3c3e41);
+  overflow: hidden;
+}
+
+.credit:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 100%;
+  bottom: 44px;
+  left: 0;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-top: 1px solid #d4af37;
+}
+
+.prepaid {
+  background: linear-gradient(135deg, #004d40, #00bfa5);
+}
+
+.debit {
+  position: relative;
+  background: linear-gradient(135deg, #1e3c72, #1e3c72);
+  overflow: hidden;
+}
+
+.debit:before {
+  content: "";
+  position: absolute;
+  width: 176px;
+  height: 260px;
+  background-color: var(--color-text-white);
+  opacity: 0.05;
+  border-radius: 40px;
+  transform: rotate(15deg);
+  right: 10px;
+  bottom: -100px;
+}

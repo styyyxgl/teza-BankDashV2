@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  height: 100%;
+}
+
+.header-content {
+  display: flex;
+  width: 100%;
+  padding: 20px 36px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title {
+  font-size: 26px;
+}

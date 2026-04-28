@@ -1,0 +1,46 @@
+.navigation-link-container {
+  position: relative;
+}
+
+.navigation-link {
+  display: flex;
+  align-items: center;
+  margin: 0 16px;
+  border-radius: 8px;
+  padding: 12px 24px;
+  gap: 25px;
+  line-height: 1.6;
+  color: var(--color-text-gray);
+  transition: 0.35s;
+}
+
+.navigation-link:hover {
+  background-color: var(--color-background-accent);
+}
+
+.navigation-link svg {
+  fill: currentColor;
+  transition: 0.35s;
+}
+
+.active {
+  color: var(--color-accent-1);
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  background-color: var(--color-accent-1);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 6px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: background-color 0.5s;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+}

@@ -1,0 +1,57 @@
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #343c6a;
+}
+
+.expenseCard {
+  position: relative;
+  height: 228px;
+  background: #ffffff;
+  border-radius: 25px;
+  padding: 38px 18px 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  box-shadow: 0 12px 30px rgba(32, 38, 70, 0.06);
+}
+
+.expenseValue {
+  position: absolute;
+  top: 20px;
+  right: 32px;
+  color: #343c6a;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.barItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.bar {
+  width: 30px;
+  border-radius: 10px;
+  background: #edf0f7;
+}
+
+.activeBar {
+  background: #16dbcc;
+}
+
+.month {
+  font-size: 11px;
+  color: #718ebf;
+}

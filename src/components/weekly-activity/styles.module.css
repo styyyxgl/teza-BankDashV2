@@ -1,0 +1,32 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 368px;
+}
+
+.section-title {
+  line-height: 1.2;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background-1);
+  border-radius: 25px;
+  padding: 24px 30px;
+  flex-grow: 1;
+}
+
+.description {
+  font-size: 20px;
+  color: var(--color-text-light);
+}
+
+.chart-wrapper {
+  min-height: 270px;
+  width: 100%;
+}

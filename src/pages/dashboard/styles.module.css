@@ -1,0 +1,63 @@
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 20px;
+  max-width: 1120px;
+  width: 100%;
+}
+
+.cards-wrapper {
+  grid-column: span 2;
+  min-height: 272px;
+}
+
+.payments-wrapper {
+  grid-column: span 1;
+  min-height: 272px;
+}
+
+.transfers-wrapper {
+  grid-column: span 1;
+  min-height: 368px;
+}
+
+.weekly-wrapper {
+  grid-column: span 2;
+  min-height: 368px;
+}
+
+.balance-wrapper {
+  grid-column: 1 / -1;
+  min-height: 324px;
+}
+
+.placeholder {
+  /* TODO: change to actual component */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 20px;
+  border-radius: 25px;
+  background: var(--color-background-1);
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-wrapper,
+  .payments-wrapper,
+  .transfers-wrapper,
+  .weekly-wrapper,
+  .balance-wrapper {
+    grid-column: 1 / -1;
+  }
+}

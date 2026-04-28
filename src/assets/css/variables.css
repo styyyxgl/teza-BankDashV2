@@ -1,0 +1,18 @@
+:root {
+  --color-background-1: #fff;
+  --color-background-2: #f9f9f9;
+  --color-background-accent: #e7edffff;
+  --color-text-dark: #343c6aff;
+  --color-text-gray: #b1b1b1;
+  --color-text-light: #718ebf;
+  --color-text-white: #fff;
+  --color-accent-1: #1814f3;
+  --color-accent-1-light: #1814f314;
+  --color-accent-2: #fe5c73ff;
+  --color-accent-2-light: #fe5c730d;
+  --color-accent-3: #16DBCC;
+  --color-accent-3-light: #DCFAF8;
+  --color-accent-4: #FFBB38;
+  --color-accent-4-light: #FFF5D9;
+  --color-border: #dfeaf2;
+}

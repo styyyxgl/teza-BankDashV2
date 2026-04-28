@@ -1,0 +1,34 @@
+.layout {
+  display: grid;
+  grid-template:
+    "header header" 100px
+    "sidebar main" 1fr
+    / 240px 1fr;
+  height: 100vh;
+}
+
+.layout-header {
+  grid-area: header;
+}
+
+.main-container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.layout-sidebar {
+  grid-area: sidebar;
+}
+
+.layout-main {
+  grid-area: main;
+  padding: 30px 40px;
+  overflow-y: auto;
+  background-color: var(--color-background-2);
+}
+
+@media (max-width: 1024px) {
+  .layout-main {
+    padding: 20px;
+  }
+}
