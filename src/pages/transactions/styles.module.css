@@ -1,15 +1,13 @@
 .page {
-  min-height: 100vh;
-  background: #f5f7fb;
-  padding: 28px 32px;
+  width: 100%;
   color: #343c6a;
 }
 
 .topGrid {
   display: grid;
-  grid-template-columns: minmax(760px, 2fr) 1fr;
-  gap: 30px;
-  margin-bottom: 24px;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px 20px;
+  margin-bottom: 30px;
 }
 
 .cardsWrapper,
@@ -19,23 +17,25 @@
   min-width: 0;
 }
 
+.cardsWrapper {
+  min-height: 272px;
+}
+
+.expenseWrapper {
+  min-height: 272px;
+}
+
 .transferWrapper,
 .recentWrapper {
   background: #ffffff;
   border-radius: 25px;
   padding: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   box-shadow: 0 12px 30px rgba(32, 38, 70, 0.04);
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
   .topGrid {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .page {
-    padding: 20px;
   }
 }
