@@ -33,6 +33,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("theme", theme);
+
+    return () => {
+      document.documentElement.removeAttribute("data-theme");
+    };
   }, [theme]);
 
   const setTheme = (newTheme: Theme) => {
