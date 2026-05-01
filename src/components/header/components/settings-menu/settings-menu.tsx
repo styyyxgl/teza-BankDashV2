@@ -1,25 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import SettingsIcon from "~/assets/icons/Settings.svg?react";
+import { useTheme, type Theme } from "~/context/theme-context";
 
 import styles from "./styles.module.css";
 
-const themes = ["white", "dark", "blue"];
+const themes: Theme[] = ["white", "dark", "blue"];
 
 export const SettingsMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState("blue");
+  const { theme, setTheme } = useTheme();
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "blue";
-    setTheme(savedTheme);
-    document.documentElement.dataset.theme = savedTheme;
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    localStorage.setItem("theme", theme);
-  }, [theme]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
