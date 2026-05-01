@@ -55,10 +55,6 @@ export const TransactionExpense = () => {
     0,
   );
 
-  const activeExpenseMonth = expenseData.reduce((max, item) =>
-    item.total > max.total ? item : max,
-  );
-
   return (
     <section>
       <div className={styles.sectionHeader}>
