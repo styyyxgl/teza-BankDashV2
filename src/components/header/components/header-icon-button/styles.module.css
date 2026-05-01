@@ -1,0 +1,30 @@
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: #f5f7fb;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.icon-button:hover {
+  background-color: #eef3ff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgb(113 142 191 / 20%);
+}
+
+.icon-button:active {
+  transform: scale(0.95);
+}
+
+.icon-button svg {
+  width: 22px;
+  height: 22px;
+}
