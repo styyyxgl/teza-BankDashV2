@@ -17,6 +17,8 @@ import { Transactions } from "./pages/transactions/transactions";
 import { CreditCards } from "./pages/credit-cards/credit-cards";
 import { Investments } from "./pages/investments/investments";
 
+import { ToastProvider } from "./context/toast-context";
+
 import "./assets/css/styles.css";
 
 const queryClient = new QueryClient({});
@@ -25,63 +27,65 @@ createRoot(document.getElementById("root") as HTMLElement).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <RouterProvider
-          routes={[
-            {
-              element: <PublicRoute />,
-              children: [
-                {
-                  element: <Landing />,
-                  path: AppRoute.ROOT,
-                },
-                {
-                  element: <Auth />,
-                  path: AppRoute.SIGN_IN,
-                },
-                {
-                  element: <Auth />,
-                  path: AppRoute.SIGN_UP,
-                },
-              ],
-            },
+        <ToastProvider>
+          <RouterProvider
+            routes={[
+              {
+                element: <PublicRoute />,
+                children: [
+                  {
+                    element: <Landing />,
+                    path: AppRoute.ROOT,
+                  },
+                  {
+                    element: <Auth />,
+                    path: AppRoute.SIGN_IN,
+                  },
+                  {
+                    element: <Auth />,
+                    path: AppRoute.SIGN_UP,
+                  },
+                ],
+              },
 
-            {
-              element: <ProtectedRoute />,
-              children: [
-                {
-                  element: <Layout />,
-                  children: [
-                    {
-                      element: <Dashboard />,
-                      path: AppRoute.DASHBOARD,
-                      handle: { title: "Overview" },
-                    },
-                    {
-                      element: <Transactions />,
-                      path: AppRoute.TRANSACTIONS,
-                      handle: { title: "Transactions" },
-                    },
-                    {
-                      element: <CreditCards />,
-                      path: AppRoute.CARDS,
-                      handle: { title: "Credit Cards" },
-                    },
-                    {
-                      element: <Investments />,
-                      path: AppRoute.INVESTMENTS,
-                      handle: { title: "Investments" },
-                    },
-                  ],
-                },
-              ],
-            },
+              {
+                element: <ProtectedRoute />,
+                children: [
+                  {
+                    element: <Layout />,
+                    children: [
+                      {
+                        element: <Dashboard />,
+                        path: AppRoute.DASHBOARD,
+                        handle: { title: "Overview" },
+                      },
+                      {
+                        element: <Transactions />,
+                        path: AppRoute.TRANSACTIONS,
+                        handle: { title: "Transactions" },
+                      },
+                      {
+                        element: <CreditCards />,
+                        path: AppRoute.CARDS,
+                        handle: { title: "Credit Cards" },
+                      },
+                      {
+                        element: <Investments />,
+                        path: AppRoute.INVESTMENTS,
+                        handle: { title: "Investments" },
+                      },
+                    ],
+                  },
+                ],
+              },
 
-            {
-              path: "*",
-              element: <NotFoundRoute />,
-            },
-          ]}
-        />
+              {
+                path: "*",
+                element: <NotFoundRoute />,
+              },
+            ]}
+          />
+        </ToastProvider>
       </AuthProvider>
     </QueryClientProvider>
   </StrictMode>,

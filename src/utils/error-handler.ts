@@ -1,3 +1,5 @@
+import { showGlobalToast } from "~/context/toast-context";
+
 export const handleError = (error: any) => {
   console.error("App Error:", error);
 
@@ -14,7 +16,8 @@ export const handleError = (error: any) => {
         message = "This email is already registered. Please sign in.";
         break;
       case "auth/too-many-requests":
-        message = "Too many login attempts. Please wait a bit and try again.";
+        message =
+          "Too many login attempts. Please wait a bit and try again.";
         break;
       case "auth/invalid-email":
         message = "Incorrect email format.";
@@ -24,6 +27,5 @@ export const handleError = (error: any) => {
     message = error.message;
   }
 
-  // TODO: toast
-  alert(message);
+  showGlobalToast(message, "error");
 };

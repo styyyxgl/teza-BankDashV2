@@ -3,6 +3,7 @@ import { getValidClassNames } from "~/utils/get-valid-class-names";
 import CardChip from "~/assets/icons/Card-Chip.svg?react";
 import CardChip2 from "~/assets/icons/Chip-Card-2.svg?react";
 import Copy from "~/assets/icons/Card-Number-Copy.svg?react";
+import { useToast } from "~/context/toast-context";
 
 import styles from "./styles.module.css";
 
@@ -11,10 +12,11 @@ type Properties = {
 };
 
 export const Card: React.FC<Properties> = ({ card }) => {
+  const { showToast } = useToast();
   const copyToClipboard = async (textToCopy: string) => {
     try {
       await navigator.clipboard.writeText(textToCopy);
-      alert("Card number copied"); // TODO: toast
+      showToast("Card number copied", "success");
     } catch (err) {
       console.error("Failed to copy text: ", err);
     }
