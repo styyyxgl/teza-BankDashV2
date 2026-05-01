@@ -58,7 +58,6 @@
   gap: 12px;
 }
 
-/* 🔹 BUTOANE TEME */
 .theme-button {
   position: relative;
   width: 44px;
@@ -90,7 +89,6 @@
   border-color: var(--color-accent-1);
 }
 
-/* 🔹 WHITE */
 .white::after {
   background: linear-gradient(
     135deg,
@@ -99,7 +97,6 @@
   );
 }
 
-/* 🔹 DARK */
 .dark::after {
   background: linear-gradient(
     135deg,
@@ -108,7 +105,6 @@
   );
 }
 
-/* 🔹 BLUE (tema ta default) */
 .blue::after {
   background: linear-gradient(
     135deg,
