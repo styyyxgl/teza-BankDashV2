@@ -74,7 +74,7 @@ export const TransactionExpense = () => {
           <div key={item.month} className={styles.barItem}>
             <div
               className={`${styles.bar} ${
-                item.month === activeExpenseMonth.month ? styles.activeBar : ""
+                item.total > 0 ? styles.activeBar : ""
               }`}
               style={{ height: `${item.height}px` }}
               title={`$${item.total.toFixed(2)}`}
