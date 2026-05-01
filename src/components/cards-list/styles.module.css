@@ -11,6 +11,7 @@
   font-size: 20px;
   font-weight: 600;
   justify-content: space-between;
+  color: var(--color-text-dark);
 }
 
 .section-subtitle {
@@ -18,6 +19,7 @@
   align-items: center;
   font-size: 16px;
   transition: all 0.3s ease;
+  color: var(--color-text-light);
 }
 
 .section-subtitle:hover {
@@ -37,7 +39,7 @@
   width: 360px;
   height: 228px;
   border-radius: 25px;
-  border: 2px dashed #94a3b866;
+  border: 2px dashed var(--color-border);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   transition: all 0.4s ease;
   cursor: pointer;
@@ -65,6 +67,6 @@
 
 .empty-card:hover .empty-card-icon {
   transform: translateY(-3px);
-  color: var(--color-accent-1,);
+  color: var(--color-accent-1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }

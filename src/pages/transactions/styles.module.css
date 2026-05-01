@@ -1,6 +1,6 @@
 .page {
   width: 100%;
-  color: #343c6a;
+  color: var(--color-text-dark);
 }
 
 .topGrid {
@@ -31,7 +31,7 @@
 
 .transferWrapper,
 .recentWrapper {
-  background: #ffffff;
+  background: var(--color-background-1);
   border-radius: 25px;
   padding: 24px;
   margin-bottom: 30px;

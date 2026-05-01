@@ -107,7 +107,7 @@ export const RecentTransactions = () => {
               <select
                 value={activeCardId}
                 onChange={(e) => handleCardChange(e.target.value)}
-                style={{ display: "block", width: "100%", padding: "8px" }}
+                className={styles["card-select"]}
                 disabled={cards.length === 0}
               >
                 {cards.map((card) => (
