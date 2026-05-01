@@ -16,3 +16,35 @@
   --color-accent-4-light: #FFF5D9;
   --color-border: #dfeaf2;
 }
+
+:root[data-theme="dark"] {
+  --color-background-1: #1f2933;
+  --color-background-2: #111827;
+  --color-background-accent: #2a3441;
+
+  --color-text-dark: #ffffff;
+  --color-text-gray: #9ca3af;
+  --color-text-light: #cbd5e1;
+  --color-text-white: #ffffff;
+
+  --color-accent-1: #2f9ec7;
+  --color-accent-1-light: rgba(47, 158, 199, 0.15);
+
+  --color-border: #374151;
+}
+
+:root[data-theme="gray"] {
+  --color-background-1: #34495e;
+  --color-background-2: #243447;
+  --color-background-accent: #3b4b5c;
+
+  --color-text-dark: #ffffff;
+  --color-text-gray: #d1d5db;
+  --color-text-light: #aab8d6;
+  --color-text-white: #ffffff;
+
+  --color-accent-1: #79a7e8;
+  --color-accent-1-light: rgba(121, 167, 232, 0.15);
+
+  --color-border: #4b5563;
+}

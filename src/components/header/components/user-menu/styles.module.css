@@ -19,7 +19,7 @@
 }
 
 .avatar-button:hover {
-  background-color: #eef3ff;
+  background-color: var(--color-background-accent);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgb(113 142 191 / 20%);
 }
@@ -107,7 +107,7 @@
 .dropdown-hr {
   border-width: 0 0 thin;
   border-style: solid;
-  border-color: #f2f4f7;
+  border-color: var(--color-border);
 }
 
 .logout-button {
@@ -118,7 +118,7 @@
   line-height: 1.6;
   color: var(--color-accent-2);
   /* border: 1px solid var(--color-accent-2); */
-  border: 1px solid rgba(252, 138, 154, 0.59);
+  border: 1px solid var(--color-accent-2);
   transition: all 0.2s ease;
 }
 

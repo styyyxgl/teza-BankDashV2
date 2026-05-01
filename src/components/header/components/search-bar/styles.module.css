@@ -5,7 +5,7 @@
   height: 50px;
   padding: 0 8px 0 18px;
   border-radius: 40px;
-  background-color: #f5f7fb;
+  background-color: var(--color-background-2);
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .search-input::placeholder {
-  color: #718ebf;
+  color: var(--color-text-light);
 }
 
 .search-button {
@@ -44,7 +44,7 @@
 }
 
 .search-button:hover {
-  background-color: #eef3ff;
+  background-color: var(--color-background-accent);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgb(113 142 191 / 20%);
 }

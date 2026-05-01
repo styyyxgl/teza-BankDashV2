@@ -6,7 +6,7 @@
   height: 50px;
   border: none;
   border-radius: 50%;
-  background-color: #f5f7fb;
+  background-color: var(--color-background-2);
   cursor: pointer;
   transition:
     background-color 0.25s ease,
@@ -15,7 +15,7 @@
 }
 
 .icon-button:hover {
-  background-color: #eef3ff;
+  background-color: var(--color-background-accent);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgb(113 142 191 / 20%);
 }
