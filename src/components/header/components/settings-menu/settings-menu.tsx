@@ -3,7 +3,7 @@ import SettingsIcon from "~/assets/icons/Settings.svg?react";
 
 import styles from "./styles.module.css";
 
-const themes = ["blue", "dark", "gray"];
+const themes = ["white", "dark", "blue"];
 
 export const SettingsMenu = () => {
   const [isOpen, setIsOpen] = useState(false);

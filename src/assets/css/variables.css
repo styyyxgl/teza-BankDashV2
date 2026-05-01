@@ -33,7 +33,7 @@
   --color-border: #374151;
 }
 
-:root[data-theme="gray"] {
+:root[data-theme="blue"] {
   --color-background-1: #34495e;
   --color-background-2: #243447;
   --color-background-accent: #3b4b5c;
