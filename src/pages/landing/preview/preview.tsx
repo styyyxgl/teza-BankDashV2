@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PREVIEW_ITEMS } from "~/constants/preview-items";
 import { getValidClassNames } from "~/utils/get-valid-class-names";
 
@@ -6,6 +6,16 @@ import styles from "./styles.module.css";
 
 export const Preview = () => {
   const [activeIndex, setActiveIndex] = useState(1);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setActiveIndex((currentIndex) =>
+        currentIndex === PREVIEW_ITEMS.length - 1 ? 0 : currentIndex + 1,
+      );
+    }, 5000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
 
   const getCardPositionClass = (index: number) => {
     if (index === activeIndex) return styles["card-active"];
