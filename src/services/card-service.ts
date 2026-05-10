@@ -17,11 +17,39 @@ import { MAX_CARDS_PER_USER } from "~/constants/max-cards-per-user";
 
 export const cardService = {
   generateCardNumber(): string {
-    let num = "4149";
-    for (let i = 0; i < 12; i++) {
-      num += Math.floor(Math.random() * 10).toString();
+    const bin = "414720";
+    let partialNumber = bin;
+
+    for (let i = 0; i < 9; i++) {
+      partialNumber += Math.floor(Math.random() * 10).toString();
     }
-    return num;
+
+    // Luhn number
+    const checkDigit = this.calculateLuhnCheckDigit(partialNumber);
+
+    return partialNumber + checkDigit;
+  },
+
+  calculateLuhnCheckDigit(number: string): string {
+    const digits = number.split("").map(Number).reverse();
+
+    let sum = 0;
+
+    for (let i = 0; i < digits.length; i++) {
+      let digit = digits[i];
+
+      if (i % 2 === 0) {
+        digit *= 2;
+
+        if (digit > 9) {
+          digit -= 9;
+        }
+      }
+
+      sum += digit;
+    }
+
+    return ((10 - (sum % 10)) % 10).toString();
   },
 
   generateExpirationDate(): string {
@@ -48,7 +76,9 @@ export const cardService = {
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.size >= MAX_CARDS_PER_USER) {
-      throw new Error(`You cannot have more than ${MAX_CARDS_PER_USER} cards.`);
+      throw new Error(
+        `You cannot have more than ${MAX_CARDS_PER_USER} cards.`,
+      );
     }
 
     const newCardNumber = this.generateCardNumber();
