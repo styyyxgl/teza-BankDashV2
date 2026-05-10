@@ -81,7 +81,22 @@ export const cardService = {
       );
     }
 
-    const newCardNumber = this.generateCardNumber();
+    let newCardNumber: string;
+    let existingCard: boolean;
+
+    do {
+      newCardNumber = this.generateCardNumber();
+
+      const existingCardQuery = query(
+        collection(db, "cards"),
+        where("id", "==", newCardNumber),
+      );
+
+      const existingSnapshot = await getDocs(existingCardQuery);
+
+      existingCard = !existingSnapshot.empty;
+    } while (existingCard);
+
     const expirationDate = this.generateExpirationDate();
 
     const newCard: BankCard = {
