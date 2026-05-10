@@ -24,7 +24,11 @@ export const Preview = () => {
               getCardPositionClass(index),
             )}
           >
-            {item.imageSrc}
+            <img
+              src={item.imageSrc}
+              alt={item.title}
+              className={styles["card-image"]}
+            />
           </div>
         ))}
       </div>
