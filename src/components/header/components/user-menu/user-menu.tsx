@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "~/context/auth-context";
 import { authService } from "~/services/auth-service";
-import defaultPhoto from "~/assets/img/default-avatar.jpg";
 
 import styles from "./styles.module.css";
 
@@ -34,7 +33,7 @@ export const UserMenu = () => {
 
   const name = userData?.name || "Name";
   const email = userData?.email || "example@gmail.com";
-  const photoUrl = /* TODO: userData?.avatarUrl || */ defaultPhoto;
+  const firstLetter = name.charAt(0).toUpperCase();
 
   return (
     <div className={styles["user-menu"]} ref={dropdownRef}>
@@ -42,17 +41,17 @@ export const UserMenu = () => {
         className={styles["avatar-button"]}
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <img src={photoUrl} alt={name} className={styles["avatar-image"]} />
+        <div className={styles["avatar-placeholder"]}>
+          {firstLetter}
+        </div>
       </button>
 
       {isOpen && (
         <div className={styles["dropdown-menu"]}>
           <div className={styles["dropdown-header"]}>
-            <img
-              src={photoUrl}
-              alt={name}
-              className={styles["dropdown-avatar-large"]}
-            />
+            <div className={styles["dropdown-avatar-large"]}>
+              {firstLetter}
+            </div>
             <div className={styles["dropdown-user-info"]}>
               <span className={styles["dropdown-name"]}>{name}</span>
               <span className={styles["dropdown-email"]}>
