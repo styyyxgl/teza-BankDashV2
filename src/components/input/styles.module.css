@@ -73,6 +73,17 @@
   border-color: var(--color-accent-2);
 }
 
+.field-disabled {
+  background-color: var(--color-background-2);
+  color: var(--color-text-light);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.field-disabled::placeholder {
+  color: var(--color-text-light);
+}
+
 .error-text {
   position: absolute;
   top: 22px;

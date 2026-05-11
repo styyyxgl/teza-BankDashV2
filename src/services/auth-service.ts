@@ -20,6 +20,10 @@ export const authService = {
         uid: user.uid,
         name: name,
         email: email,
+        username: "",
+        dateOfBirth: "",
+        city: "",
+        country: "",
         createdAt: Date.now(),
       });
 

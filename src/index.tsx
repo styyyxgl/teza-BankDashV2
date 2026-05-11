@@ -19,6 +19,7 @@ import { Dashboard } from "./pages/dashboard/dashboard";
 import { Transactions } from "./pages/transactions/transactions";
 import { CreditCards } from "./pages/credit-cards/credit-cards";
 import { Investments } from "./pages/investments/investments";
+import { Settings } from "./pages/settings/settings";
 
 import "./assets/css/styles.css";
 
@@ -78,6 +79,11 @@ createRoot(document.getElementById("root") as HTMLElement).render(
                         element: <Investments />,
                         path: AppRoute.INVESTMENTS,
                         handle: { title: "Investments" },
+                      },
+                      {
+                        element: <Settings />,
+                        path: AppRoute.SETTINGS,
+                        handle: { title: "Settings" },
                       },
                     ],
                   },

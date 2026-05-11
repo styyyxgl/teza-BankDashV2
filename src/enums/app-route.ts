@@ -6,6 +6,7 @@ const AppRoute = {
   TRANSACTIONS: "/transactions",
   CARDS: "/credit-cards",
   INVESTMENTS: "/investments",
+  SETTINGS: "/settings",
 } as const;
 
 export { AppRoute };

@@ -8,17 +8,13 @@ import {
 import { type User, onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "~/config/firebase";
+import type { UserProfile } from "~/types/user-profile.type";
 
-export interface UserData { // TODO: Move to separate file
-  uid: string;
-  email: string;
-  name: string;
-  createdAt: number;
-}
+export type { UserProfile } from "~/types/user-profile.type";
 
 interface AuthContextType {
   currentUser: User | null;
-  userData: UserData | null;
+  userData: UserProfile | null;
   loading: boolean;
 }
 
@@ -34,7 +30,7 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [userData, setUserData] = useState<UserData | null>(null);
+  const [userData, setUserData] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -47,7 +43,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           const userDocSnap = await getDoc(userDocRef);
 
           if (userDocSnap.exists()) {
-            setUserData(userDocSnap.data() as UserData);
+            setUserData(userDocSnap.data() as UserProfile);
           } else {
             console.warn("User data not found in the database");
           }

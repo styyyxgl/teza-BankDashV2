@@ -1,1 +1,1 @@
-export type IconName = "dashboard" | "transactions" | "card" | "investments";
+export type IconName = "dashboard" | "transactions" | "card" | "investments" | "settings";

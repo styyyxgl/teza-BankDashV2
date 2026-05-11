@@ -7,12 +7,13 @@ import styles from "./styles.module.css";
 type Properties = {
   label?: string;
   name: string;
-  type?: "text" | "password" | "email" | "number" | "select";
+  type?: "text" | "password" | "email" | "number" | "select" | "date";
   value: string | number;
   onChange: (value: string) => void;
   placeholder?: string;
   options?: SelectOption[];
   error?: string;
+  disabled?: boolean;
 };
 
 export const Input: React.FC<Properties> = ({
@@ -24,6 +25,7 @@ export const Input: React.FC<Properties> = ({
   placeholder,
   options = [],
   error,
+  disabled = false,
 }) => {
   const isSelect = type === "select";
 
@@ -102,10 +104,12 @@ export const Input: React.FC<Properties> = ({
           className={getValidClassNames(
             styles["field"],
             error && styles["field-error"],
+            disabled && styles["field-disabled"],
           )}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
+          disabled={disabled}
         />
       )}
 

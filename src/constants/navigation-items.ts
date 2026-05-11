@@ -22,4 +22,9 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     icon: "investments",
     label: "Investments",
   },
+  {
+    href: AppRoute.SETTINGS,
+    icon: "settings",
+    label: "Setting",
+  },
 ];
