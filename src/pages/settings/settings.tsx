@@ -80,7 +80,7 @@ export const Settings = () => {
   return (
     <div className={styles["settings-container"]}>
       <div className={styles["settings-header"]}>
-        <h2 className={styles["settings-title"]}>Setting</h2>
+        <h2 className={styles["settings-title"]}>Settings</h2>
       </div>
 
       <div className={styles["settings-tabs"]}>

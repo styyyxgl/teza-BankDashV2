@@ -25,6 +25,6 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
   {
     href: AppRoute.SETTINGS,
     icon: "settings",
-    label: "Setting",
+    label: "Settings",
   },
 ];
