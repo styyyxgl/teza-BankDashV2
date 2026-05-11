@@ -28,9 +28,13 @@
   transform: scale(0.95);
 }
 
-.settings-button svg {
+.settings-button svg,
+.settings-button svg path {
   width: 22px;
   height: 22px;
+  fill: #718ebf;
+  stroke-width: 0.5;
+  transition: 0.25s ease;
 }
 
 .dropdown {
