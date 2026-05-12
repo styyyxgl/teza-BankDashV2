@@ -3,12 +3,14 @@ import { Outlet, useMatches } from "react-router-dom";
 import { Header } from "~/components/header/header";
 import { Sidebar } from "~/components/sidebar/sidebar";
 import { Navigation } from "~/components/navigation/navigation";
+import { useIncomingTransactions } from "~/hooks/transactions/use-incoming-transactions";
 import { NAVIGATION_ITEMS } from "~/constants/navigation-items";
 
 import styles from "./styles.module.css";
 
 export const Layout = () => {
   const matches = useMatches();
+  useIncomingTransactions();
 
   const pageTitle =
     matches

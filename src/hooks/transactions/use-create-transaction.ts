@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { transactionService } from "~/services/transaction-service";
 import { useAuth } from "~/context/auth-context";
 import { useToast } from "~/context/toast-context";
+import { useNotifications } from "~/context/notification-context";
 import type { TransactionCategory } from "~/types/transaction.type";
 
 type CreateTransactionPayload = {
@@ -16,6 +17,7 @@ export const useCreateTransaction = () => {
   const { currentUser } = useAuth();
   const queryClient = useQueryClient();
   const { showToast } = useToast();
+  const { addNotification } = useNotifications();
 
   return useMutation({
     mutationFn: (data: CreateTransactionPayload) =>
@@ -28,7 +30,7 @@ export const useCreateTransaction = () => {
         description: data.description,
       }),
 
-    onSuccess: () => {
+    onSuccess: (transaction) => {
       queryClient.invalidateQueries({
         queryKey: ["transactions", currentUser?.uid],
       });
@@ -38,6 +40,13 @@ export const useCreateTransaction = () => {
       });
 
       showToast("Transaction successful!", "success");
+
+      const notificationMessage =
+        transaction.receiverUserId === currentUser?.uid
+          ? `Internal transfer: $${transaction.amount.toFixed(2)} transferred`
+          : `Transfer sent: $${transaction.amount.toFixed(2)} to ${transaction.description}`;
+
+      addNotification(notificationMessage, "success");
     },
 
     onError: (err: any) => {

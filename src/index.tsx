@@ -6,6 +6,7 @@ import { AuthProvider } from "./context/auth-context";
 import { ToastProvider } from "./context/toast-context";
 import { ThemeProvider } from "./context/theme-context";
 import { CurrencyProvider } from "./context/currency-context";
+import { NotificationProvider } from "./context/notification-context";
 
 import { RouterProvider } from "./routes/router-provider";
 import { ProtectedRoute } from "./routes/protected-route";
@@ -31,74 +32,76 @@ createRoot(document.getElementById("root") as HTMLElement).render(
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <ToastProvider>
-          <RouterProvider
-            routes={[
-              {
-                element: <PublicRoute />,
-                children: [
-                  {
-                    element: <Landing />,
-                    path: AppRoute.ROOT,
-                  },
-                  {
-                    element: <Auth />,
-                    path: AppRoute.SIGN_IN,
-                  },
-                  {
-                    element: <Auth />,
-                    path: AppRoute.SIGN_UP,
-                  },
-                ],
-              },
+          <NotificationProvider>
+            <RouterProvider
+              routes={[
+                {
+                  element: <PublicRoute />,
+                  children: [
+                    {
+                      element: <Landing />,
+                      path: AppRoute.ROOT,
+                    },
+                    {
+                      element: <Auth />,
+                      path: AppRoute.SIGN_IN,
+                    },
+                    {
+                      element: <Auth />,
+                      path: AppRoute.SIGN_UP,
+                    },
+                  ],
+                },
 
-              {
-                element: <ProtectedRoute />,
-                children: [
-                  {
-                    element: (
-                      <ThemeProvider>
-                        <CurrencyProvider>
-                          <Layout />
-                        </CurrencyProvider>
-                      </ThemeProvider>
-                    ),
-                    children: [
-                      {
-                        element: <Dashboard />,
-                        path: AppRoute.DASHBOARD,
-                        handle: { title: "Overview" },
-                      },
-                      {
-                        element: <Transactions />,
-                        path: AppRoute.TRANSACTIONS,
-                        handle: { title: "Transactions" },
-                      },
-                      {
-                        element: <CreditCards />,
-                        path: AppRoute.CARDS,
-                        handle: { title: "Credit Cards" },
-                      },
-                      {
-                        element: <Investments />,
-                        path: AppRoute.INVESTMENTS,
-                        handle: { title: "Investments" },
-                      },
-                      {
-                        element: <Settings />,
-                        path: AppRoute.SETTINGS,
-                        handle: { title: "Settings" },
-                      },
-                    ],
-                  },
-                ],
-              },
+                {
+                  element: <ProtectedRoute />,
+                  children: [
+                    {
+                      element: (
+                        <ThemeProvider>
+                          <CurrencyProvider>
+                            <Layout />
+                          </CurrencyProvider>
+                        </ThemeProvider>
+                      ),
+                      children: [
+                        {
+                          element: <Dashboard />,
+                          path: AppRoute.DASHBOARD,
+                          handle: { title: "Overview" },
+                        },
+                        {
+                          element: <Transactions />,
+                          path: AppRoute.TRANSACTIONS,
+                          handle: { title: "Transactions" },
+                        },
+                        {
+                          element: <CreditCards />,
+                          path: AppRoute.CARDS,
+                          handle: { title: "Credit Cards" },
+                        },
+                        {
+                          element: <Investments />,
+                          path: AppRoute.INVESTMENTS,
+                          handle: { title: "Investments" },
+                        },
+                        {
+                          element: <Settings />,
+                          path: AppRoute.SETTINGS,
+                          handle: { title: "Settings" },
+                        },
+                      ],
+                    },
+                  ],
+                },
 
-              {
-                path: "*",
-                element: <NotFoundRoute />,
-              },
-            ]}
-          />
+                {
+                  path: "*",
+                  element: <NotFoundRoute />,
+                },
+              ]}
+            />
+          </NotificationProvider>
         </ToastProvider>
       </AuthProvider>
     </QueryClientProvider>

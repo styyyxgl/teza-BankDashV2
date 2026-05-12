@@ -1,10 +1,8 @@
 import { Logo } from "~/components/logo/logo";
 import { SearchBar } from "./components/search-bar/search-bar";
 import { SettingsMenu } from "./components/settings-menu/settings-menu";
-import { HeaderIconButton } from "./components/header-icon-button/header-icon-button";
+import { NotificationBell } from "./components/notification-bell/notification-bell";
 import { UserMenu } from "./components/user-menu/user-menu";
-
-import NotificationsIcon from "~/assets/icons/Notifications.svg?react";
 
 import styles from "./styles.module.css";
 
@@ -23,7 +21,7 @@ export const Header: React.FC<Properties> = ({ title }: Properties) => {
         <div className={styles["header-actions"]}>
           <SearchBar />
           <SettingsMenu />
-          <HeaderIconButton icon={NotificationsIcon} label="Notifications" />
+          <NotificationBell />
           <UserMenu />
         </div>
       </div>

@@ -1,0 +1,111 @@
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  type ReactNode,
+} from "react";
+
+export type NotificationType = "success" | "error" | "info";
+
+export interface Notification {
+  id: string;
+  message: string;
+  type: NotificationType;
+  timestamp: number;
+}
+
+type NotificationContextType = {
+  notifications: Notification[];
+  addNotification: (message: string, type: NotificationType) => void;
+  removeNotification: (id: string) => void;
+  clearNotifications: () => void;
+  hasUnread: boolean;
+  markAsRead: () => void;
+};
+
+const NotificationContext = createContext<NotificationContextType | null>(null);
+const STORAGE_KEY = "app_notifications";
+const UNREAD_KEY = "app_notifications_unread";
+
+export const useNotifications = () => {
+  const context = useContext(NotificationContext);
+
+  if (!context) {
+    throw new Error(
+      "useNotifications must be used within NotificationProvider",
+    );
+  }
+
+  return context;
+};
+
+export const NotificationProvider = ({ children }: { children: ReactNode }) => {
+  const [notifications, setNotifications] = useState<Notification[]>(() => {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const [hasUnread, setHasUnread] = useState(() => {
+    try {
+      const stored = localStorage.getItem(UNREAD_KEY);
+      return stored ? JSON.parse(stored) : false;
+    } catch {
+      return false;
+    }
+  });
+
+  // Save notifications to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(notifications));
+  }, [notifications]);
+
+  // Save hasUnread state to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem(UNREAD_KEY, JSON.stringify(hasUnread));
+  }, [hasUnread]);
+
+  const addNotification = (message: string, type: NotificationType) => {
+    const id = `${Date.now()}-${Math.random()}`;
+    const newNotification: Notification = {
+      id,
+      message,
+      type,
+      timestamp: Date.now(),
+    };
+
+    setNotifications((prev) => [newNotification, ...prev]);
+    setHasUnread(true);
+  };
+
+  const removeNotification = (id: string) => {
+    setNotifications((prev) => prev.filter((notif) => notif.id !== id));
+  };
+
+  const clearNotifications = () => {
+    setNotifications([]);
+  };
+
+  const markAsRead = () => {
+    setHasUnread(false);
+  };
+
+  return (
+    <NotificationContext.Provider
+      value={{
+        notifications,
+        addNotification,
+        removeNotification,
+        clearNotifications,
+        hasUnread,
+        markAsRead,
+      }}
+    >
+      {children}
+    </NotificationContext.Provider>
+  );
+};
