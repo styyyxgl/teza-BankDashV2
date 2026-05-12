@@ -135,7 +135,6 @@
   color: var(--color-text-dark);
 }
 
-/* Notification type styles */
 .notification-success {
   border-left: 4px solid #16a34a;
 }

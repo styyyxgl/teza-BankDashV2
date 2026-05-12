@@ -13,7 +13,6 @@ export const NotificationBell = () => {
     const newOpenState = !isOpen;
     setIsOpen(newOpenState);
 
-    // Mark as read immediately when opening
     if (newOpenState) {
       markAsRead();
     }

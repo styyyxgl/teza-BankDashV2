@@ -59,12 +59,10 @@ export const NotificationProvider = ({ children }: { children: ReactNode }) => {
     }
   });
 
-  // Save notifications to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(notifications));
   }, [notifications]);
 
-  // Save hasUnread state to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem(UNREAD_KEY, JSON.stringify(hasUnread));
   }, [hasUnread]);

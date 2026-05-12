@@ -16,7 +16,6 @@ export const useIncomingTransactions = () => {
         const allTransactions =
           await transactionService.getUserTransactions(currentUser.uid);
 
-        // Get only recent transactions (created after last check)
         const incomingTransactions = allTransactions.filter(
           (transaction) =>
             transaction.receiverUserId === currentUser.uid &&
@@ -38,7 +37,6 @@ export const useIncomingTransactions = () => {
       }
     };
 
-    // Check immediately and then every 30 seconds
     checkIncomingTransactions();
     const interval = setInterval(checkIncomingTransactions, 30000);
 
