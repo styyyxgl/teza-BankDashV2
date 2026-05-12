@@ -134,7 +134,7 @@ export const WeeklyActivity = () => {
       },
       tooltip: {
         callbacks: {
-          label: (context) => {
+          label: (context: any) => {
             const label = context.datasetIndex === 0 ? "Income" : "Expense";
 
             return `${label}: ${context.raw}`;

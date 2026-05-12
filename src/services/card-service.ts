@@ -69,7 +69,7 @@ export const cardService = {
     name: string,
     cardType: CardType,
     bank: BankName,
-    currency: Currency = "UAH",
+    currency: Currency = "USD",
   ): Promise<BankCard> {
     const cardsRef = collection(db, "cards");
     const q = query(cardsRef, where("userId", "==", userId));

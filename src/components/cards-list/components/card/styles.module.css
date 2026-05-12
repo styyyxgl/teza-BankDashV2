@@ -33,6 +33,15 @@
 .balance {
   font-size: 24px;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.currency {
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.8;
 }
 
 .details {

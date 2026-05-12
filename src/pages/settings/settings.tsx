@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "~/context/auth-context";
+import { useCurrency } from "~/context/currency-context";
 import { profileService } from "~/services/profile-service";
 import { Input } from "~/components/input/input";
 import { useToast } from "~/context/toast-context";
@@ -13,6 +14,7 @@ type Tab = "edit-profile" | "preferences" | "security";
 
 export const Settings = () => {
   const { currentUser, userData } = useAuth();
+  const { currency, setCurrency } = useCurrency();
   const { showToast } = useToast();
   const [activeTab, setActiveTab] = useState<Tab>("edit-profile");
   const [loading, setLoading] = useState(false);
@@ -196,8 +198,28 @@ export const Settings = () => {
 
         {activeTab === "preferences" && (
           <div className={styles["preferences"]}>
-            <h3>Preferences</h3>
-            <p>Preferences section will be implemented in the future.</p>
+            <div className={styles["preferences-section"]}>
+              <h3>Preferences</h3>
+              
+              <div className={styles["preference-item"]}>
+                <label htmlFor="currency-select" className={styles["preference-label"]}>
+                  Default Currency
+                </label>
+                <select
+                  id="currency-select"
+                  className={styles["currency-select"]}
+                  value={currency}
+                  onChange={(e) => setCurrency(e.target.value as "USD" | "EUR" | "UAH")}
+                >
+                  <option value="USD">USD (US Dollar)</option>
+                  <option value="EUR">EUR (Euro)</option>
+                  <option value="UAH">UAH (Ukrainian Hryvnia)</option>
+                </select>
+                <p className={styles["preference-description"]}>
+                  This is the default currency for new cards
+                </p>
+              </div>
+            </div>
           </div>
         )}
 

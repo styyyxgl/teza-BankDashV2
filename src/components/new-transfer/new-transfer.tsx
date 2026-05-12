@@ -89,7 +89,7 @@ export const NewTransfer = () => {
         >
           {myCards.map((card) => (
             <option key={card.id} value={card.id}>
-              {card.bank} - {card.id.slice(-4)} (${card.balance.toFixed(2)})
+              {card.bank} - {card.id.slice(-4)} (${card.balance.toFixed(2)} {card.currency})
             </option>
           ))}
         </select>

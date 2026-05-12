@@ -1,3 +1,5 @@
+import type { Currency } from "./bank-card.type";
+
 export interface UserProfile {
   uid: string;
   email: string;
@@ -6,6 +8,7 @@ export interface UserProfile {
   dateOfBirth?: string;
   city?: string;
   country?: string;
+  currency?: Currency;
   createdAt: number;
   updatedAt?: number;
 }

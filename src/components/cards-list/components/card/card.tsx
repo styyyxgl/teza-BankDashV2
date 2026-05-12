@@ -36,7 +36,8 @@ export const Card: React.FC<Properties> = ({ card }) => {
 
       <div className={styles["balance-section"]}>
         <div className={styles["balance"]}>
-          {card.balance.toLocaleString("en-US")}
+          <span>{card.balance.toLocaleString("en-US")}</span>
+          <span className={styles["currency"]}>{card.currency}</span>
         </div>
         {card.cardType === "Virtual" ? <CardChip /> : <CardChip2 />}
       </div>

@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AuthProvider } from "./context/auth-context";
 import { ToastProvider } from "./context/toast-context";
 import { ThemeProvider } from "./context/theme-context";
+import { CurrencyProvider } from "./context/currency-context";
 
 import { RouterProvider } from "./routes/router-provider";
 import { ProtectedRoute } from "./routes/protected-route";
@@ -56,7 +57,9 @@ createRoot(document.getElementById("root") as HTMLElement).render(
                   {
                     element: (
                       <ThemeProvider>
-                        <Layout />
+                        <CurrencyProvider>
+                          <Layout />
+                        </CurrencyProvider>
                       </ThemeProvider>
                     ),
                     children: [

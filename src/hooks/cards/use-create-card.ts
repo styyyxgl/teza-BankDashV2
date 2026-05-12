@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { cardService } from "~/services/card-service";
 import { useAuth } from "~/context/auth-context";
+import { useCurrency } from "~/context/currency-context";
 import { useToast } from "~/context/toast-context";
 import type { CardType, BankName } from "~/types/bank-card.type";
 
@@ -12,6 +13,7 @@ type CreateCardPayload = {
 
 export const useCreateCard = () => {
   const { currentUser } = useAuth();
+  const { currency } = useCurrency();
   const queryClient = useQueryClient();
   const { showToast } = useToast();
 
@@ -22,6 +24,7 @@ export const useCreateCard = () => {
         data.name,
         data.cardType,
         data.bank,
+        currency,
       ),
 
     onSuccess: () => {
