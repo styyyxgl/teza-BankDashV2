@@ -5,6 +5,7 @@ import { useNotifications } from "~/context/notification-context";
 import { profileService } from "~/services/profile-service";
 import { Input } from "~/components/input/input";
 import { Toggle } from "~/components/toggle/toggle";
+import { ChangePassword } from "~/components/change-password/change-password";
 import { useToast } from "~/context/toast-context";
 import { COUNTRIES } from "~/constants/countries";
 import { doc, getDoc } from "firebase/firestore";
@@ -237,8 +238,7 @@ export const Settings = () => {
 
         {activeTab === "security" && (
           <div className={styles["security"]}>
-            <h3>Security</h3>
-            <p>Security section will be implemented in the future.</p>
+            <ChangePassword />
           </div>
         )}
       </div>
