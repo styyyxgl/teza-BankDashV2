@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "~/context/auth-context";
 import { useCurrency } from "~/context/currency-context";
+import { useNotifications } from "~/context/notification-context";
 import { profileService } from "~/services/profile-service";
 import { Input } from "~/components/input/input";
+import { Toggle } from "~/components/toggle/toggle";
 import { useToast } from "~/context/toast-context";
 import { COUNTRIES } from "~/constants/countries";
 import { doc, getDoc } from "firebase/firestore";
@@ -15,6 +17,7 @@ type Tab = "edit-profile" | "preferences" | "security";
 export const Settings = () => {
   const { currentUser, userData } = useAuth();
   const { currency, setCurrency } = useCurrency();
+  const { notificationsEnabled, setNotificationsEnabled } = useNotifications();
   const { showToast } = useToast();
   const [activeTab, setActiveTab] = useState<Tab>("edit-profile");
   const [loading, setLoading] = useState(false);
@@ -218,6 +221,15 @@ export const Settings = () => {
                 <p className={styles["preference-description"]}>
                   This is the default currency for new cards
                 </p>
+              </div>
+
+              <div className={styles["preference-item"]}>
+                <Toggle
+                  enabled={notificationsEnabled}
+                  onChange={setNotificationsEnabled}
+                  label="Enable Notifications"
+                  description="Turn on/off notifications from the application"
+                />
               </div>
             </div>
           </div>

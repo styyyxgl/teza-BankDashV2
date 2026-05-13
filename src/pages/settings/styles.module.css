@@ -198,6 +198,12 @@
   border-color: var(--color-accent-1);
 }
 
+.preference-description {
+  font-size: 12px;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
 .currency-select:focus {
   outline: none;
   border-color: var(--color-accent-1);
